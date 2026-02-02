@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Victoria Picon - Gestionnaire ADV & Coordinatrice Export</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
@@ -13,186 +13,419 @@
 html { scroll-behavior: smooth; }
 
 :root {
---primary-blue: #a3c2fa;
---accent-green: #caffd8;
---dark-text: #2c3e50;
---white: #ffffff;
+    /* Paleta de colores más moderna y profesional */
+    --primary-blue: #4A90E2; /* Azul más corporativo */
+    --soft-blue: #EDF4FC;     /* Fondo suave */
+    --accent-teal: #40c0cb;   /* Tu color de acento original */
+    --dark-text: #2c3e50;
+    --light-text: #607d8b;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
-font-family: 'Open Sans', sans-serif;
-margin: 0;
-background: #f9f9f9;
-color: var(--dark-text);
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background: #ffffff;
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-text);
 }
 
 /* NAVBAR */
-
 .navbar {
-position: sticky;
-top: 0;
-background: white;
-padding: 15px 30px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-z-index: 1000;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .nav-links a {
-margin-left: 20px;
-text-decoration: none;
-color: #333;
-font-weight: 600;
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
 }
 
 .cv-btn {
-background: #40c0cb;
-color: white !important;
-padding: 8px 14px;
-border-radius: 5px;
+    background: var(--primary-blue);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 50px; /* Botón redondeado */
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+    transition: transform 0.2s ease;
 }
 
-/* BUTTON */
-
-.contact-btn {
-display: inline-block;
-margin-top: 20px;
-padding: 12px 24px;
-background: #40c0cb;
-color: white;
-text-decoration: none;
-font-weight: 600;
-border-radius: 6px;
-transition: 0.3s;
+.cv-btn:hover {
+    background: #357abd;
+    transform: translateY(-2px);
 }
 
-.contact-btn:hover {
-background: #2aa5af;
-transform: translateY(-2px);
-}
-
-/* HEADER */
-
+/* HERO SECTION (ENCABEZADO MEJORADO) */
 header {
-max-width: 1200px;
-margin: auto;
-padding: 40px 20px;
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 40px;
-align-items: center;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row-reverse; /* Foto a la derecha en escritorio */
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    min-height: 80vh;
+}
+
+.header-content {
+    flex: 1;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.header-content h1 strong {
+    color: var(--primary-blue);
+    position: relative;
+    z-index: 1;
+}
+
+.header-content h1 strong::after {
+    /* Subrayado decorativo */
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: var(--soft-blue);
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.header-content p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+/* ESTILO DE LA FOTO MEJORADO */
+.img-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 .profile-img {
-width: 300px;
-height: 300px;
-object-fit: cover;
-border-radius: 10px;
-box-shadow: 10px 10px 0px var(--primary-blue);
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    /* Forma moderna: Cuadrado redondeado (Squircle) */
+    border-radius: 40px; 
+    /* Sombra suave difuminada en lugar de solida */
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1), 
+                -20px -20px 60px rgba(255,255,255,0.8);
+    border: 5px solid white;
+    z-index: 2;
+    transition: transform 0.3s ease;
 }
 
-/* LAYOUT */
+.profile-img:hover {
+    transform: scale(1.02);
+}
 
+/* Elemento decorativo detrás de la foto */
+.img-bg-deco {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background: var(--soft-blue);
+    border-radius: 50%;
+    top: -20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--accent-teal);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(64, 192, 203, 0.4);
+}
+
+.contact-btn:hover {
+    background: #33aeb9;
+    transform: translateY(-3px);
+}
+
+/* LAYOUT PRINCIPAL */
 .container {
-display: grid;
-grid-template-columns: 1fr 2fr;
-max-width: 1200px;
-margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Sidebar fijo de 300px */
+    gap: 60px;
 }
 
+/* SIDEBAR MEJORADO */
 .sidebar {
-background: var(--primary-blue);
-padding: 40px;
+    /* Ya no es un bloque azul sólido */
+    background: transparent;
+    padding: 20px 0;
 }
 
+.sticky-sidebar {
+    position: sticky;
+    top: 100px; /* Se queda fijo al hacer scroll */
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid #f0f0f0;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Etiquetas (Chips) para skills */
+.skill-tag {
+    display: inline-block;
+    background: var(--soft-blue);
+    color: var(--primary-blue);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-right: 5px;
+}
+
+/* CONTENT AREA */
 .content {
-background: white;
-padding: 40px;
+    padding: 20px 0;
 }
 
-/* SERVICES */
+/* SERVICES GRID */
+.services-header {
+    margin-bottom: 30px;
+}
 
 .services-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
 
 .service-card {
-background: #f8fbff;
-padding: 20px;
-border-radius: 8px;
-transition: 0.3s;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.15);
+    border-color: var(--primary-blue);
+    transform: translateY(-5px);
+}
+
+.service-card h4 {
+    color: var(--primary-blue);
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.service-card p {
+    color: var(--light-text);
+    margin-bottom: 0;
 }
 
 /* TESTIMONIALS */
-
 .testimonials {
-padding: 60px 20px;
-text-align: center;
-background: #f0f6ff;
+    padding: 80px 20px;
+    background: var(--soft-blue);
+    text-align: center;
+    margin-top: 60px;
+}
+
+.testimonial-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .testimonial-card {
-max-width: 600px;
-margin: 20px auto;
-background: white;
-padding: 20px;
-border-radius: 8px;
-box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    max-width: 400px;
+    text-align: left;
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    font-family: serif;
+    font-size: 80px;
+    color: var(--primary-blue);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: var(--dark-text);
+    position: relative;
+    z-index: 1;
 }
 
 /* FOOTER */
-
 footer {
-background: linear-gradient(to right, var(--accent-green), var(--primary-blue));
-padding: 40px 20px;
+    background: #1a252f; /* Fondo oscuro elegante */
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer h2 {
+    color: white;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: auto;
 }
 
 .contact-form {
-display: flex;
-flex-direction: column;
-gap: 10px;
-margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 .contact-form input,
 .contact-form textarea {
-padding: 10px;
-border-radius: 5px;
-border: none;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-family: inherit;
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+    color: #aaa;
 }
 
 .contact-form button {
-background: #40c0cb;
-color: white;
-padding: 12px;
-border: none;
-border-radius: 5px;
-font-weight: bold;
+    background: var(--accent-teal);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: 0.3s;
 }
 
-/* WHATSAPP FLOAT */
+.contact-form button:hover {
+    background: #33aeb9;
+}
 
+/* WHATSAPP */
 .whatsapp-float {
-position: fixed;
-bottom: 20px;
-right: 20px;
-background: #25D366;
-color: white;
-font-size: 28px;
-padding: 14px;
-border-radius: 50%;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: white;
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: 0.3s;
+    text-decoration: none;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 768px) {
-header, .container, .services-grid {
-grid-template-columns: 1fr;
-}
+    header {
+        flex-direction: column-reverse; /* Texto arriba, foto abajo en móvil */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .profile-img {
+        width: 250px;
+        height: 250px;
+    }
+    .img-bg-deco { width: 260px; height: 260px; }
+
+    .header-content h1 { font-size: 2rem; }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .sidebar { order: 2; } /* Pone las skills debajo en móvil */
+    .sticky-sidebar { position: static; }
+    
+    .navbar { flex-direction: column; gap: 15px; }
+    .nav-links a { margin: 0 10px; }
 }
 
 </style>
@@ -201,123 +434,144 @@ grid-template-columns: 1fr;
 <body>
 
 <nav class="navbar">
-<div>Victoria Picon</div>
-<div class="nav-links">
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-<a href="cv.pdf" download class="cv-btn">Download CV</a>
-</div>
+    <div class="logo">Victoria Picon</div>
+    <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="cv.pdf" download class="cv-btn">Download CV</a>
+    </div>
 </nav>
 
 <header>
-<div>
-<h1>Vos ventes à l'international décollent, mais votre <strong>administratif sature ?</strong></h1>
-<p>Ne laissez plus la logistique ralentir votre croissance.</p>
+    <div class="header-content">
+        <h1>Vos ventes à l'international décollent, mais votre <strong>administratif sature ?</strong></h1>
+        <p>Ne laissez plus la logistique ralentir votre croissance. Externalisez votre gestion ADV et Export avec une experte dédiée.</p>
 
-<a href="#contact" class="contact-btn">
-<i class="fas fa-envelope"></i> Contact me
-</a>
-</div>
+        <a href="#contact" class="contact-btn">
+            <i class="fas fa-envelope"></i> Contact me
+        </a>
+    </div>
 
-<img src="tu-foto.jpg" class="profile-img">
+    <div class="img-wrapper">
+        <div class="img-bg-deco"></div>
+        <img src="tu-foto.jpg" alt="Victoria Picon" class="profile-img">
+    </div>
 </header>
 
 <div class="container">
 
-<aside class="sidebar">
-<h3>Langues</h3>
-<p>Français • Espagnol • Anglais</p>
-<h3>Logiciels</h3>
-<p>SAGE • SAP • Salesforce</p>
-</aside>
+    <aside class="sidebar">
+        <div class="sticky-sidebar">
+            <h3><i class="fas fa-language"></i> Langues</h3>
+            <div>
+                <span class="skill-tag">Français</span>
+                <span class="skill-tag">Espagnol</span>
+                <span class="skill-tag">Anglais</span>
+            </div>
+            
+            <h3 style="margin-top: 30px;"><i class="fas fa-laptop-code"></i> Logiciels</h3>
+            <div>
+                <span class="skill-tag">SAGE</span>
+                <span class="skill-tag">SAP</span>
+                <span class="skill-tag">Salesforce</span>
+                <span class="skill-tag">Excel</span>
+            </div>
+        </div>
+    </aside>
 
-<main class="content">
+    <main class="content">
+        <div id="services">
+            <div class="services-header">
+                <h2>Mes Services</h2>
+                <p>Une gestion administrative sur-mesure pour votre entreprise.</p>
+            </div>
 
-<div id="services">
-<h2>SERVICES</h2>
+            <div class="services-grid">
 
-<div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-file-invoice fa-2x" style="color:var(--primary-blue); margin-bottom:15px;"></i>
+                    <h4>Pré-Comptabilité</h4>
+                    <p>Suivi administratif complet, facturation et préparation comptable.</p>
+                </div>
 
-<div class="service-card">
-<h4>Pré-Comptabilité</h4>
-<p>Suivi administratif complet.</p>
-</div>
+                <div class="service-card">
+                    <i class="fas fa-users-cog fa-2x" style="color:var(--primary-blue); margin-bottom:15px;"></i>
+                    <h4>ADV</h4>
+                    <p>Gestion du cycle de vie client, de la commande à la livraison.</p>
+                </div>
 
-<div class="service-card">
-<h4>ADV</h4>
-<p>Gestion cycle client.</p>
-</div>
+                <div class="service-card">
+                    <i class="fas fa-hand-holding-usd fa-2x" style="color:var(--primary-blue); margin-bottom:15px;"></i>
+                    <h4>Recouvrement</h4>
+                    <p>Suivi des encaissements et résolution amiable des litiges.</p>
+                </div>
 
-<div class="service-card">
-<h4>Recouvrement</h4>
-<p>Résolution litiges.</p>
-</div>
+                <div class="service-card">
+                    <i class="fas fa-globe-americas fa-2x" style="color:var(--primary-blue); margin-bottom:15px;"></i>
+                    <h4>Export</h4>
+                    <p>Coordination logistique internationale et douanière.</p>
+                </div>
 
-<div class="service-card">
-<h4>Export</h4>
-<p>Coordination logistique.</p>
-</div>
-
-</div>
-</div>
-
-</main>
+            </div>
+        </div>
+    </main>
 </div>
 
 <section class="testimonials">
-<h2>Testimonials</h2>
+    <h2>Ce qu'ils disent de moi</h2>
+    <div class="testimonial-wrapper">
+        <div class="testimonial-card">
+            <p>"Victoria a transformé notre flux de travail. Une efficacité redoutable sur l'export."</p>
+            <br><strong>– CEO, Import/Export Co.</strong>
+        </div>
 
-<div class="testimonial-card">
-<p>"Victoria transformed our workflow."</p>
-<strong>– Client</strong>
-</div>
-
-<div class="testimonial-card">
-<p>"Extremely reliable."</p>
-<strong>– Director</strong>
-</div>
+        <div class="testimonial-card">
+            <p>"Extrêmement fiable et autonome. Je recommande vivement ses services ADV."</p>
+            <br><strong>– Directeur Commercial</strong>
+        </div>
+    </div>
 </section>
 
 <footer id="contact">
+    <div class="footer-content">
+        <h2>Contactez-moi</h2>
+        <p>Discutons de vos besoins administratifs.</p>
+        
+        <p style="margin-top:20px;">
+            <i class="fas fa-map-marker-alt"></i> Chevreuse (78) &bull; 
+            <i class="fas fa-phone"></i> 06 52 07 99 96
+        </p>
 
-<h2>Contact</h2>
-
-<p>📍 Chevreuse (78)</p>
-<p>📞 06 52 07 99 96</p>
-
-<form class="contact-form">
-<input type="text" placeholder="Name">
-<input type="email" placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button>Send message</button>
-</form>
-
+        <form class="contact-form">
+            <input type="text" placeholder="Votre nom">
+            <input type="email" placeholder="Votre email">
+            <textarea rows="4" placeholder="Comment puis-je vous aider ?"></textarea>
+            <button>Envoyer le message</button>
+        </form>
+    </div>
 </footer>
 
-<a href="https://wa.me/33652079996" class="whatsapp-float">
-<i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/33652079996" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
+    // Simple animación de aparición al hacer scroll
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    });
 
-const cards = document.querySelectorAll('.service-card, .testimonial-card');
-
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.style.opacity = 1;
-entry.target.style.transform = "translateY(0)";
-}
-});
-});
-
-cards.forEach(card => {
-card.style.opacity = 0;
-card.style.transform = "translateY(20px)";
-card.style.transition = "0.6s";
-observer.observe(card);
-});
-
+    document.querySelectorAll('.service-card, .testimonial-card').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "all 0.6s ease-out";
+        observer.observe(el);
+    });
 </script>
 
 </body>
