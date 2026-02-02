@@ -1,368 +1,324 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victoria Picon - Gestionnaire ADV & Coordinatrice Export</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-blue: #a3c2fa; /* Azul claro del flyer */
-            --light-blue-bg: #dceaff;
-            --accent-green: #caffd8; /* Verde menta del footer */
-            --dark-text: #2c3e50;
-            --white: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victoria Picon - Gestionnaire ADV & Coordinatrice Export</title>
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--dark-text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 10px;
-        }
+<style>
 
-        /* --- Header / Hero Section --- */
-        header {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
+html { scroll-behavior: smooth; }
 
-        .hero-text h1 {
-            font-size: 2rem;
-            color: var(--dark-text);
-            font-weight: 400;
-        }
-        
-        .hero-text strong {
-            font-weight: 700;
-        }
+:root {
+--primary-blue: #a3c2fa;
+--accent-green: #caffd8;
+--dark-text: #2c3e50;
+--white: #ffffff;
+}
 
-        .hero-role {
-            margin-top: 20px;
-            padding: 15px;
-            border-left: 4px solid var(--primary-blue);
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+body {
+font-family: 'Open Sans', sans-serif;
+margin: 0;
+background: #f9f9f9;
+color: var(--dark-text);
+}
 
-        .profile-img-container {
-            text-align: center;
-        }
+/* NAVBAR */
 
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 10px 10px 0px var(--primary-blue); /* Efecto visual del flyer */
-        }
+.navbar {
+position: sticky;
+top: 0;
+background: white;
+padding: 15px 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+z-index: 1000;
+}
 
-        /* --- Main Layout Grid --- */
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 2fr; /* Columna izquierda estrecha, derecha ancha */
-            max-width: 1200px;
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-        }
+.nav-links a {
+margin-left: 20px;
+text-decoration: none;
+color: #333;
+font-weight: 600;
+}
 
-        /* --- Sidebar (Azul) --- */
-        .sidebar {
-            background-color: var(--primary-blue);
-            padding: 40px;
-            color: #333;
-        }
+.cv-btn {
+background: #40c0cb;
+color: white !important;
+padding: 8px 14px;
+border-radius: 5px;
+}
 
-        .sidebar h3 {
-            border-bottom: 2px solid #fff;
-            padding-bottom: 5px;
-            margin-top: 20px;
-        }
+/* BUTTON */
 
-        .skill-list {
-            list-style: none;
-            padding: 0;
-        }
+.contact-btn {
+display: inline-block;
+margin-top: 20px;
+padding: 12px 24px;
+background: #40c0cb;
+color: white;
+text-decoration: none;
+font-weight: 600;
+border-radius: 6px;
+transition: 0.3s;
+}
 
-        .skill-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: baseline;
-        }
+.contact-btn:hover {
+background: #2aa5af;
+transform: translateY(-2px);
+}
 
-        .skill-list i {
-            margin-right: 10px;
-            color: #004aad;
-        }
+/* HEADER */
 
-        /* --- Content Area (Blanco) --- */
-        .content {
-            background-color: var(--white);
-            padding: 40px;
-        }
+header {
+max-width: 1200px;
+margin: auto;
+padding: 40px 20px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+align-items: center;
+}
 
-        .services-intro h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+.profile-img {
+width: 300px;
+height: 300px;
+object-fit: cover;
+border-radius: 10px;
+box-shadow: 10px 10px 0px var(--primary-blue);
+}
 
-        .checklist {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 30px 0;
-        }
+/* LAYOUT */
 
-        .checklist-item {
-            display: flex;
-            align-items: center;
-        }
+.container {
+display: grid;
+grid-template-columns: 1fr 2fr;
+max-width: 1200px;
+margin: auto;
+}
 
-        .checklist-item i {
-            color: #40c0cb; /* Turquesa */
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
+.sidebar {
+background: var(--primary-blue);
+padding: 40px;
+}
 
-        /* --- Detailed Services Grid --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 40px;
-        }
+.content {
+background: white;
+padding: 40px;
+}
 
-        .service-card {
-            background: #f8fbff;
-            padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
+/* SERVICES */
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+.services-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 30px;
+}
 
-        .service-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
+.service-card {
+background: #f8fbff;
+padding: 20px;
+border-radius: 8px;
+transition: 0.3s;
+}
 
-        .service-icon {
-            font-size: 2rem;
-            color: #40c0cb;
-            margin-right: 15px;
-        }
+/* TESTIMONIALS */
 
-        .service-card h4 {
-            margin: 0;
-            font-size: 1.1rem;
-        }
+.testimonials {
+padding: 60px 20px;
+text-align: center;
+background: #f0f6ff;
+}
 
-        .service-card p {
-            font-size: 0.9rem;
-            color: #666;
-        }
+.testimonial-card {
+max-width: 600px;
+margin: 20px auto;
+background: white;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
-        /* --- Footer (Verde) --- */
-        footer {
-            background: linear-gradient(to right, var(--accent-green), var(--primary-blue));
-            padding: 40px 20px;
-            margin-top: 0;
-        }
+/* FOOTER */
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+footer {
+background: linear-gradient(to right, var(--accent-green), var(--primary-blue));
+padding: 40px 20px;
+}
 
-        .contact-info p {
-            margin: 5px 0;
-            font-size: 1.1rem;
-        }
+.contact-form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-top: 20px;
+}
 
-        .contact-info i {
-            color: #e74c3c; /* Color pin mapa */
-            margin-right: 10px;
-        }
-        
-        .phone-link {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
+.contact-form input,
+.contact-form textarea {
+padding: 10px;
+border-radius: 5px;
+border: none;
+}
 
-        .qr-placeholder {
-            background: #fff;
-            padding: 10px;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            text-align: center;
-            border: 2px solid #333;
-        }
+.contact-form button {
+background: #40c0cb;
+color: white;
+padding: 12px;
+border: none;
+border-radius: 5px;
+font-weight: bold;
+}
 
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            header, .container, .checklist, .services-grid, .footer-content {
-                grid-template-columns: 1fr;
-                display: block; /* O flex column */
-            }
-            
-            .footer-content {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
+/* WHATSAPP FLOAT */
 
-            .container {
-                display: flex;
-                flex-direction: column;
-            }
-            
-            .profile-img {
-                width: 100%;
-                max-width: 300px;
-                margin-top: 20px;
-            }
-            
-            .checklist, .services-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-    </style>
+.whatsapp-float {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: #25D366;
+color: white;
+font-size: 28px;
+padding: 14px;
+border-radius: 50%;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+header, .container, .services-grid {
+grid-template-columns: 1fr;
+}
+}
+
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="hero-text">
-            <h1>Vos ventes à l'international décollent, mais votre <strong>administratif sature ?</strong></h1>
-            <p>Ne laissez plus la logistique et la paperasse ralentir votre croissance.</p>
-            
-            <div class="hero-role">
-                <h3>VICTORIA PICON</h3>
-                <p>GESTIONNAIRE ADV & COORDINATRICE EXPORT TRILINGUE</p>
-            </div>
-        </div>
-        <div class="profile-img-container">
-            <img src="tu-foto.jpg" alt="Victoria Picon" class="profile-img">
-        </div>
-    </header>
+<nav class="navbar">
+<div>Victoria Picon</div>
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+<a href="cv.pdf" download class="cv-btn">Download CV</a>
+</div>
+</nav>
 
-    <div class="container">
-        
-        <aside class="sidebar">
-            <h3><i class="fas fa-language"></i> Langues</h3>
-            <ul class="skill-list">
-                <li>🇫🇷 Français : Langue maternelle</li>
-                <li>🇪🇸 Espagnol : Bilingue / C2</li>
-                <li>🇬🇧 Anglais : Professionnel / C1</li>
-            </ul>
+<header>
+<div>
+<h1>Vos ventes à l'international décollent, mais votre <strong>administratif sature ?</strong></h1>
+<p>Ne laissez plus la logistique ralentir votre croissance.</p>
 
-            <h3><i class="fas fa-laptop-code"></i> Logiciels & ERP</h3>
-            <p>Pack Office : Excel (TCD, RechercheV), Word, PowerPoint.</p>
-            <p>Gestion : SAGE, SAP, EBP, Salesforce.</p>
+<a href="#contact" class="contact-btn">
+<i class="fas fa-envelope"></i> Contact me
+</a>
+</div>
 
-            <h3><i class="fas fa-hand-holding-heart"></i> Savoir-être</h3>
-            <ul class="skill-list">
-                <li>• Rigueur & Organisation</li>
-                <li>• Négociation & Médiation</li>
-                <li>• Autonomie & Adaptabilité</li>
-            </ul>
-        </aside>
+<img src="tu-foto.jpg" class="profile-img">
+</header>
 
-        <main class="content">
-            <div class="services-intro">
-                <h2>SERVICES</h2>
-                <p>Des litiges clients ? Des factures en attente ? De la paperasse qui s'accumule ?<br>
-                <strong>Je transforme vos blocages administratifs en solutions.</strong></p>
+<div class="container">
 
-                <div class="checklist">
-                    <div class="checklist-item"><i class="fas fa-check-circle"></i> Resolution Litiges</div>
-                    <div class="checklist-item"><i class="fas fa-check-circle"></i> Mediation commerciale</div>
-                    <div class="checklist-item"><i class="fas fa-check-circle"></i> Recouvrement & Relances</div>
-                    <div class="checklist-item"><i class="fas fa-check-circle"></i> ADV & cycle de Vente</div>
-                    <div class="checklist-item"><i class="fas fa-check-circle"></i> Pre-comptabilité & Bilan</div>
-                    <div class="checklist-item"><i class="fas fa-check-circle"></i> Logistique & douanes</div>
-                </div>
-            </div>
+<aside class="sidebar">
+<h3>Langues</h3>
+<p>Français • Espagnol • Anglais</p>
+<h3>Logiciels</h3>
+<p>SAGE • SAP • Salesforce</p>
+</aside>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-header">
-                        <i class="fas fa-file-invoice-dollar service-icon"></i>
-                        <h4>Pré-Comptabilité & Gestion</h4>
-                    </div>
-                    <p>Tenue du livre journal, préparation du Grand Livre et du dossier de bilan. Des tableaux de bord à jour pour une vision claire de vos chiffres.</p>
-                </div>
+<main class="content">
 
-                <div class="service-card">
-                    <div class="service-header">
-                        <i class="fas fa-users-cog service-icon"></i>
-                        <h4>Administration des Ventes</h4>
-                    </div>
-                    <p>Gestion complète du cycle client : de la prise de commande à la facturation finale. Un suivi rigoureux pour fidéliser vos partenaires.</p>
-                </div>
+<div id="services">
+<h2>SERVICES</h2>
 
-                <div class="service-card">
-                    <div class="service-header">
-                        <i class="fas fa-hand-holding-usd service-icon"></i>
-                        <h4>Recouvrement & Litiges</h4>
-                    </div>
-                    <p>Résolution proactive des réclamations et relance des impayés. Je transforme les blocages administratifs en liquidités.</p>
-                </div>
+<div class="services-grid">
 
-                <div class="service-card">
-                    <div class="service-header">
-                        <i class="fas fa-globe-americas service-icon"></i>
-                        <h4>Logistique & Export</h4>
-                    </div>
-                    <p>Coordination des transports et gestion des formalités douanières. Vos marchandises voyagent sans stress à travers les frontières.</p>
-                </div>
-            </div>
-        </main>
-    </div>
+<div class="service-card">
+<h4>Pré-Comptabilité</h4>
+<p>Suivi administratif complet.</p>
+</div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <p>Ne laissez plus les problèmes administratifs freiner votre business.</p>
-                <p><i class="fas fa-map-marker-alt"></i> Basée à Chevreuse (78) – Intervention sur site ou à distance.</p>
-                <p><i class="fas fa-phone-alt"></i> <a href="tel:0652079996" class="phone-link">06 52 07 99 96</a></p>
-            </div>
-            
-            <div class="qr-placeholder">
-                <img src="tu-codigo-qr.png" alt="QR Code" style="width:100%; height:100%;">
-            </div>
-        </div>
-    </footer>
+<div class="service-card">
+<h4>ADV</h4>
+<p>Gestion cycle client.</p>
+</div>
+
+<div class="service-card">
+<h4>Recouvrement</h4>
+<p>Résolution litiges.</p>
+</div>
+
+<div class="service-card">
+<h4>Export</h4>
+<p>Coordination logistique.</p>
+</div>
+
+</div>
+</div>
+
+</main>
+</div>
+
+<section class="testimonials">
+<h2>Testimonials</h2>
+
+<div class="testimonial-card">
+<p>"Victoria transformed our workflow."</p>
+<strong>– Client</strong>
+</div>
+
+<div class="testimonial-card">
+<p>"Extremely reliable."</p>
+<strong>– Director</strong>
+</div>
+</section>
+
+<footer id="contact">
+
+<h2>Contact</h2>
+
+<p>📍 Chevreuse (78)</p>
+<p>📞 06 52 07 99 96</p>
+
+<form class="contact-form">
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send message</button>
+</form>
+
+</footer>
+
+<a href="https://wa.me/33652079996" class="whatsapp-float">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+const cards = document.querySelectorAll('.service-card, .testimonial-card');
+
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.style.opacity = 1;
+entry.target.style.transform = "translateY(0)";
+}
+});
+});
+
+cards.forEach(card => {
+card.style.opacity = 0;
+card.style.transform = "translateY(20px)";
+card.style.transition = "0.6s";
+observer.observe(card);
+});
+
+</script>
 
 </body>
 </html>
