@@ -526,13 +526,19 @@ footer h2 { color: white; }
             <i class="fas fa-phone"></i> 06 52 07 99 96
         </p>
 
-        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" id="contactForm">
             
+            <input type="hidden" name="form-name" value="contact">
+
             <input type="text" name="nombre" placeholder="Votre nom" required>
             <input type="email" name="email" placeholder="Votre email" required>
             <textarea name="message" rows="4" placeholder="Comment puis-je vous aider ?" required></textarea>
             
             <button type="submit">Envoyer le message</button>
+
+            <div id="success-msg" style="display:none; margin-top:15px; background:#2ecc71; color:white; padding:10px; border-radius:5px;">
+                <i class="fas fa-check-circle"></i> Merci ! Votre message a bien été envoyé.
+            </div>
         </form>
     </div>
 </footer>
@@ -542,6 +548,7 @@ footer h2 { color: white; }
 </a>
 
 <script>
+    // 1. Animación de Scroll (la que ya tenías)
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -557,7 +564,47 @@ footer h2 { color: white; }
         el.style.transition = "all 0.6s ease-out";
         observer.observe(el);
     });
-</script>
 
+    // 2. Lógica para el Formulario de Contacto (NUEVO)
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('success-msg');
+    const btn = form.querySelector('button');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); // Evita que la página se recargue
+
+        // Cambiar texto del botón para feedback visual
+        const originalBtnText = btn.innerText;
+        btn.innerText = "Envoi en cours...";
+        btn.style.opacity = "0.7";
+
+        // Preparar datos para Netlify
+        const formData = new FormData(form);
+        
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            // ÉXITO: Mostrar mensaje y limpiar formulario
+            successMsg.style.display = 'block';
+            form.reset();
+            btn.innerText = originalBtnText;
+            btn.style.opacity = "1";
+            
+            // Ocultar el mensaje después de 5 segundos (opcional)
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 6000);
+        })
+        .catch((error) => {
+            // ERROR
+            alert("Une erreur s'est produite. Veuillez réessayer.");
+            btn.innerText = originalBtnText;
+            btn.style.opacity = "1";
+        });
+    });
+</script>
 </body>
 </html>
