@@ -526,11 +526,13 @@ footer h2 { color: white; }
             <i class="fas fa-phone"></i> 06 52 07 99 96
         </p>
 
-        <form class="contact-form">
-            <input type="text" placeholder="Votre nom">
-            <input type="email" placeholder="Votre email">
-            <textarea rows="4" placeholder="Comment puis-je vous aider ?"></textarea>
-            <button>Envoyer le message</button>
+        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+            
+            <input type="text" name="nombre" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" rows="4" placeholder="Comment puis-je vous aider ?" required></textarea>
+            
+            <button type="submit">Envoyer le message</button>
         </form>
     </div>
 </footer>
